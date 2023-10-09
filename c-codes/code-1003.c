@@ -5,16 +5,15 @@
 int main(int argc, char *argv[])
 {
   int A, B, SOMA; 
-  printf("Informe o valor de A: ");
-  scanf("%d", &A);
+  FILE *fRO;
+  FILE *fWR;
+  fRO = fopen("./input/1003.in", "r");
+  fWR = fopen("./output/1003.out", "w+");
 
-  printf("Informe o valor de B: ");
-  scanf("%d", &B);
-
-  SOMA = A + B;
-
-  printf("SOMA = %d\n", SOMA);
-
-
+  while(fscanf(fRO, "%d %d", &A, &B) !=EOF)
+  {
+    SOMA = A + B;
+    fprintf(fWR, "SOMA = %d\n", SOMA);
+  }
   return EXIT_SUCCESS;
 }
