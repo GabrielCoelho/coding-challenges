@@ -3,22 +3,15 @@
 #include <stdlib.h>
 #include <math.h>
 
-float avg(float x, float y){return (x+y)/2;}
-
 int main(int argc, char *argv[])
 {
-  float A, B, MEDIA;
-  printf("Informe o valor de A: "); 
-  scanf("%f", &A);
-
-  printf("Informe o valor de B: ");
-  scanf("%f", &B);
-
-  MEDIA = avg(A, B);
-
-  printf("MEDIA = %.5f\n", MEDIA);
-
-
-
+  double A, B, MEDIA;
+  FILE *fRO = fopen("./input/1005.in", "r");
+  FILE *fWR = fopen("./output/1005.out", "w+");
+  while(fscanf(fRO, "%lf %lf", &A, &B) != EOF)
+  {
+    MEDIA = ((A*3.5)+(7.5*B))/11;
+    fprintf(fWR, "MÉDIA = %.5lf\n", MEDIA);
+  }
   return EXIT_SUCCESS;
 }
