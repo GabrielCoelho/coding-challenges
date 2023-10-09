@@ -2,10 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define n 3.14159
+
 int main(int argc, char *argv[])
 {
-  float R, n, A;
-  n = 3.14159;
+  float R, A;
 
   printf("Digite o valor do Raio do círculo: ");
   scanf("%f", &R);
