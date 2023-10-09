@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
   FILE *fwr = fopen("./output/1010.out", "w+");
   while (fscanf(fro, "%d %d %f", &productId, &quantityBought, &productPrice)!=EOF) {
     c++;
-    
     finalPrice = finalPrice + (quantityBought * productPrice);
     if (c==2) {
       fprintf(fwr, "VALOR A PAGAR: R$ %.2f\n", finalPrice);
