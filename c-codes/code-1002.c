@@ -6,14 +6,18 @@
 
 int main(int argc, char *argv[])
 {
-  float R, A;
+  double R, A;
 
-  printf("Digite o valor do Raio do círculo: ");
-  scanf("%f", &R);
+  FILE *fRO;
+  FILE *fWR;
 
-  A = n * (R*R);
+  fRO = fopen("./input/1002.in", "r");
+  fWR = fopen("./output/1002.out", "w+");
 
-  printf("A = %.4f\n", A);
-
+  while(fscanf(fRO, "%lf", &R) != EOF)
+  {
+    A = n * (R*R);
+    fprintf(fWR, "%.4lf \n", A);
+  }
   return EXIT_SUCCESS;
 }
