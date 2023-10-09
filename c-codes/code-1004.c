@@ -5,16 +5,14 @@
 int main(int argc, char *argv[])
 {
   int PROD, A, B;
-
-  printf("Informe o valor de A: ");
-  scanf("%d", &A);
-
-  printf("Informe o valor de B: ");
-  scanf("%d", &B);
-
-  PROD = A * B;
-
-  printf("PROD = %d\n", PROD);
-
+  FILE *fRO;
+  FILE *fWR;
+  fRO = fopen("./input/1004.in", "r");
+  fWR = fopen("./output/1004.out", "w+");
+  while(fscanf(fRO, "%d %d", &A, &B) != EOF)
+  {
+    PROD = A * B;
+    fprintf(fWR, "PROD = %d\n", PROD);
+  }
   return EXIT_SUCCESS;
 }
