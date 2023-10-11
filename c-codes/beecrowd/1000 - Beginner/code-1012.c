@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     trapezium = ((A + B) * C)/ 2;
     square = B*B;
     rectangle = A * B;
-    fprintf(fwr, "TRIANGULO = %.3f\nCIRCULO = %.3f\nTRAPEZIO = %.3f\nQUADRADO = %.3f\nRETANGULO = %.3f\n\n", recTriangle, radiusCircle, trapezium, square, rectangle);
+    fprintf(fwr, "TRIANGULO: %.3f\nCIRCULO: %.3f\nTRAPEZIO: %.3f\nQUADRADO: %.3f\nRETANGULO: %.3f\n\n", recTriangle, radiusCircle, trapezium, square, rectangle);
   }
 
   return EXIT_SUCCESS;
