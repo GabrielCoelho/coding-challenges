@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
   while(fscanf(fRO, "%lf", &R) != EOF)
   {
     A = n * (R*R);
-    fprintf(fWR, "%.4lf \n", A);
+    fprintf(fWR, "A=%.4lf\n", A);
   }
   return EXIT_SUCCESS;
 }
