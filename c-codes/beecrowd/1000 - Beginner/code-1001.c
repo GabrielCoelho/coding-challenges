@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
   fROM = fopen("./input/1001.in", "r");
   while(fscanf(fROM, "%d %d", &A, &B) != EOF){
     X = A + B;
-    fprintf(fWRT, "%d \n", X);
+    fprintf(fWRT, "X = %d\n", X);
   }
   
   fclose(fROM);
