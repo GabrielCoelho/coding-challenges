@@ -1,0 +1,75 @@
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int somaFrac(int n1, int d1, int n2, int d2){
+  return ((n1*d2)+(n2*d1));
+}
+int subFrac(int n1, int d1, int n2, int d2){
+  return ((n1*d2)-(n2*d1));
+}
+int multFrac(int n1, int n2){
+  return (n1*n2);
+}
+int simplificador(int a, int b){
+  int c, d;
+  if (a==0) {
+    return 1;
+  }else if (b>a) {
+    c = a;
+    d = b;
+  }else {
+    c = b;
+    d = a;
+  }
+
+  while (d % c != 0) {
+    a = d % c;
+    d = c;
+    c = a;
+  }
+  return a; 
+}
+
+
+
+int main(int argc, char *argv[])
+{
+  FILE *fro = fopen("./input/1022.in", "r");
+  FILE *fwr = fopen("./output/1022.out", "w+");
+
+  char barra1, operador, barra2;
+  int N, numerador1, numerador2, denominador1, denominador2, resultado1, resultado2, simplificado1, simplificado2, divisor;
+
+  // Recebe o número de operações realizadas
+  fscanf(fro, "%d", &N);
+
+  // Enquanto estiver realizando operações...
+  for(int i=0; i<N; i++){
+    fscanf(fro, "%d %s %d %s %d %s %d", &numerador1, &barra1, &numerador2, &operador, &denominador1, &barra2, &denominador2);
+    printf("%d / %d %s %d / %d\n", numerador1, numerador2, operador, denominador1, denominador2);
+
+    if (operador == '+') {
+      resultado1 = somaFrac(numerador1, denominador1, numerador2, denominador2);
+      resultado2 = multFrac(denominador1, denominador2);
+    }else if (operador == '-') {
+      resultado1 = subFrac(numerador1, denominador1, numerador2, denominador2);
+      resultado2 = multFrac(denominador1, denominador2);
+    }else if (operador == '*') {          
+      resultado1 = multFrac(numerador1, denominador1);
+      resultado2 = multFrac(denominador1, denominador2);     
+    }else if (operador == '/') {
+      resultado1 = multFrac(numerador1, denominador2);
+      resultado2 = multFrac(denominador1, numerador2);
+    }
+
+    divisor = simplificador(resultado1, resultado2);
+    simplificado1 = resultado1/divisor;
+    simplificado2 = resultado2/divisor;
+
+    fprintf(fwr, "%d/%d=%d/%d\n", resultado1, resultado2,simplificado1, resultado2);
+  }
+
+  return 0;
+}
