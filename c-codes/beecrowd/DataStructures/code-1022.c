@@ -47,9 +47,7 @@ int main(int argc, char *argv[])
 
   // Enquanto estiver realizando operações...
   for(int i=0; i<N; i++){
-    fscanf(fro, "%d %s %d %s %d %s %d", &numerador1, &barra1, &numerador2, &operador, &denominador1, &barra2, &denominador2);
-    printf("%d / %d %s %d / %d\n", numerador1, numerador2, operador, denominador1, denominador2);
-
+    fscanf(fro, "%d %c %d %c %d %c %d", &numerador1, &barra1, &denominador1, &operador, &numerador2, &barra2, &denominador2);
     if (operador == '+') {
       resultado1 = somaFrac(numerador1, denominador1, numerador2, denominador2);
       resultado2 = multFrac(denominador1, denominador2);
@@ -57,7 +55,7 @@ int main(int argc, char *argv[])
       resultado1 = subFrac(numerador1, denominador1, numerador2, denominador2);
       resultado2 = multFrac(denominador1, denominador2);
     }else if (operador == '*') {          
-      resultado1 = multFrac(numerador1, denominador1);
+      resultado1 = multFrac(numerador1, numerador2);
       resultado2 = multFrac(denominador1, denominador2);     
     }else if (operador == '/') {
       resultado1 = multFrac(numerador1, denominador2);
@@ -68,7 +66,16 @@ int main(int argc, char *argv[])
     simplificado1 = resultado1/divisor;
     simplificado2 = resultado2/divisor;
 
-    fprintf(fwr, "%d/%d=%d/%d\n", resultado1, resultado2,simplificado1, resultado2);
+    fprintf(fwr, "%d/%d=", resultado1, resultado2);
+    if (simplificado1 > 0 && simplificado2 > 0) {
+      fprintf(fwr, "%d/%d\n", simplificado1, simplificado2);
+    }else {
+      if (simplificado2 < 0) {
+        simplificado2 = - simplificado2;
+        simplificado1 = - simplificado1;
+      }
+      fprintf(fwr, "%d/%d\n", simplificado1, simplificado2);
+    }
   }
 
   return 0;
