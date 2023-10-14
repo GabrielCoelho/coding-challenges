@@ -14,22 +14,33 @@ int multFrac(int n1, int n2){
 }
 int simplificador(int a, int b){
   int c, d;
+  // Checa se o numerador é 0. Neste caso, retorno um para continuar sem simplificação. 
   if (a==0) {
     return 1;
-  }else if (b>a) {
+  }
+  // Se o denominador for maior que o numerador, declaro c para numerador e d para denominador.
+  else if (b>a) {
     c = a;
     d = b;
-  }else {
+  }
+  // do contrário, d recebe o numerador e c o denominador
+  else {
     c = b;
     d = a;
   }
 
+  /* Aqui é o programa fazendo o MDC.
+   * Se dá para dividir o maior número pelo menor, o programa faz o seguinte:
+   * Define a sobra(resto) para essa divisão. 
+   * Define o menor número para ser dividido pelo resto. 
+   * Assim que o programa consegue encontrar uma divisão exata, ele para e retorna o último resto sendo, ele, o MDC. 
+   */
   while (d % c != 0) {
     a = d % c;
     d = c;
     c = a;
   }
-  return a; 
+  return c; 
 }
 
 
