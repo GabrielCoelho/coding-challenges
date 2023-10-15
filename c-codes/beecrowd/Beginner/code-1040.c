@@ -13,7 +13,7 @@ main (int argc, char *argv[])
   FILE *fro = fopen ("./input/1040.in", "r");
   FILE *fwr = fopen ("./output/1040.out", "w+");
   float studentScores[4], sumScores, media;
-  for (int j = 1; j < 4; j++)
+  for (int j = 1; j < 7; j++)
     {
       media = 0;
       sumScores = 0;
