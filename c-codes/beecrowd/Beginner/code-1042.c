@@ -8,8 +8,8 @@ main (int argc, char *argv[])
   FILE *fro = fopen ("./input/1042.in", "r");
   FILE *fwr = fopen ("./output/1042.out", "w+");
 
-  int to_be_sorted[3], sorted_array[3], maior = 0, menor = 0;
-  while (EOF != (fscanf (fro, "%*[^\n]"), fscanf (fro, "%*c")))
+  int to_be_sorted[3], sorted_array[3], lines;
+  for (int k = 0; k < 2; k++)
     {
       for (int i = 0; i < 3; i++)
         {
@@ -37,6 +37,16 @@ main (int argc, char *argv[])
                 }
             }
         }
+      for (int j = 0; j < 3; j++)
+        {
+          fprintf (fwr, "%d\n", sorted_array[j]);
+        }
+      fprintf (fwr, "\n");
+      for (int j = 0; j < 3; j++)
+        {
+          fprintf (fwr, "%d\n", to_be_sorted[j]);
+        }
+      fprintf (fwr, "\n");
     }
 
   return EXIT_SUCCESS;
