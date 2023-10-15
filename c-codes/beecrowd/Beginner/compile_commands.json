@@ -1,0 +1,14 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-o",
+      "tests/1040",
+      "code-1040.c"
+    ],
+    "directory": "/home/gbcoe/Documentos/dev/coding-challenges/c-codes/beecrowd/Beginner",
+    "file": "/home/gbcoe/Documentos/dev/coding-challenges/c-codes/beecrowd/Beginner/code-1040.c",
+    "output": "/home/gbcoe/Documentos/dev/coding-challenges/c-codes/beecrowd/Beginner/tests/1040"
+  }
+]
