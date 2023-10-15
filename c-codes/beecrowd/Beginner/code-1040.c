@@ -12,7 +12,7 @@ main (int argc, char *argv[])
 {
   FILE *fro = fopen ("./input/1040.in", "r");
   FILE *fwr = fopen ("./output/1040.out", "w+");
-  float studentScores[4], sumScores, media;
+  double studentScores[4], sumScores, media, examScore;
   for (int j = 1; j < 7; j++)
     {
       media = 0;
@@ -20,7 +20,7 @@ main (int argc, char *argv[])
       for (int i = 0; i < (sizeof studentScores / sizeof studentScores[0]);
            i++)
         {
-          fscanf (fro, "%f", &studentScores[i]);
+          fscanf (fro, "%lf", &studentScores[i]);
           if (i == 0)
             {
               studentScores[i] = studentScores[i] * grade1;
@@ -40,7 +40,7 @@ main (int argc, char *argv[])
           sumScores = sumScores + studentScores[i];
         }
       media = sumScores / (grade1 + grade2 + grade3 + grade4);
-      fprintf (fwr, "Media: %.1f\n", media);
+      fprintf (fwr, "Media: %.1lf\n", media);
       if (media > 7.0)
         {
           fprintf (fwr, "Aluno aprovado.\n");
@@ -52,8 +52,8 @@ main (int argc, char *argv[])
       else if (media >= 5.0 && media <= 6.9)
         {
           fprintf (fwr, "Aluno em exame.\n");
-          fscanf (fro, "%f", &studentScores[0]);
-          fprintf (fwr, "Nota do exame: %.1f\n", studentScores[0]);
+          fscanf (fro, "%lf", &studentScores[0]);
+          fprintf (fwr, "Nota do exame: %.1lf\n", studentScores[0]);
           media = (media + studentScores[0]) / 2;
           if (media >= 5.0)
             {
@@ -63,7 +63,7 @@ main (int argc, char *argv[])
             {
               fprintf (fwr, "Aluno reprovado.\n");
             }
-          fprintf (fwr, "Media final: %.1f\n", media);
+          fprintf (fwr, "Media final: %.1lf\n", media);
         }
     }
   return EXIT_SUCCESS;
