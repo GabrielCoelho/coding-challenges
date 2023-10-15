@@ -17,7 +17,7 @@ main (int argc, char *argv[])
   int number_one, number_two;
   while (fscanf (fro, "%d %d", &number_one, &number_two) != EOF)
     {
-      if (number_one < number_two)
+      if (number_one > number_two)
         {
           if (isMult (number_one, number_two) == 0)
             {
