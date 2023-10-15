@@ -1,2 +1,5 @@
 tests/
 tests/*
+.cache/
+.cache/*
+.clang-format
