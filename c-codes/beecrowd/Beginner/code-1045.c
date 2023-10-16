@@ -74,9 +74,9 @@ main (int argc, char *argv[])
             {
               fprintf (fwr, "TRIANGULO RETANGULO\n");
             }
-          if (pow (side_a, 2) > (pow (side_b, 2) + pow (side_c, 2)))
+          if (side_a * side_a > side_b * side_b + side_c * side_c)
             {
-              fprintf (fwr, "TRIANGULO OBSUTANGULO\n");
+              fprintf (fwr, "TRIANGULO OBTUSANGULO\n");
             }
           if (pow (side_a, 2) < (pow (side_b, 2) + pow (side_c, 2)))
             {
@@ -90,7 +90,7 @@ main (int argc, char *argv[])
               || (side_b == side_c && side_b != side_a)
               || (side_a == side_c && side_a != side_b))
             {
-              fprintf (fwr, "TRIANGULO ISOCELES\n");
+              fprintf (fwr, "TRIANGULO ISOSCELES\n");
             }
         }
     }
