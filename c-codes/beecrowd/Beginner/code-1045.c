@@ -74,7 +74,7 @@ main (int argc, char *argv[])
             {
               fprintf (fwr, "TRIANGULO RETANGULO\n");
             }
-          else if (side_a * side_a > side_b * side_b + side_c * side_c)
+          else if (pow (side_a, 2) > pow (side_b, 2) + pow (side_c, 2))
             {
               fprintf (fwr, "TRIANGULO OBTUSANGULO\n");
             }
