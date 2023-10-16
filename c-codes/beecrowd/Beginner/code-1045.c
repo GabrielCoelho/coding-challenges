@@ -63,7 +63,7 @@ main (int argc, char *argv[])
               side_c = arrangementMule;
             }
         }
-      if (side_a >= abs (side_b + side_c))
+      if (side_a >= (side_b + side_c))
         {
           fprintf (fwr, "NAO FORMA TRIANGULO\n");
         }
@@ -74,11 +74,11 @@ main (int argc, char *argv[])
             {
               fprintf (fwr, "TRIANGULO RETANGULO\n");
             }
-          if (side_a * side_a > side_b * side_b + side_c * side_c)
+          else if (side_a * side_a > side_b * side_b + side_c * side_c)
             {
               fprintf (fwr, "TRIANGULO OBTUSANGULO\n");
             }
-          if (pow (side_a, 2) < (pow (side_b, 2) + pow (side_c, 2)))
+          else if (pow (side_a, 2) < (pow (side_b, 2) + pow (side_c, 2)))
             {
               fprintf (fwr, "TRIANGULO ACUTANGULO\n");
             }
@@ -86,9 +86,9 @@ main (int argc, char *argv[])
             {
               fprintf (fwr, "TRIANGULO EQUILATERO\n");
             }
-          if ((side_a == side_b && side_a != side_c)
-              || (side_b == side_c && side_b != side_a)
-              || (side_a == side_c && side_a != side_b))
+          else if ((side_a == side_b && side_a != side_c)
+                   || (side_b == side_c && side_b != side_a)
+                   || (side_a == side_c && side_a != side_b))
             {
               fprintf (fwr, "TRIANGULO ISOSCELES\n");
             }
