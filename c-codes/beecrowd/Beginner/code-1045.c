@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int
-biggestValue (int a, int b, int c)
+double
+biggestValue (double a, double b, double c)
 {
   if (a > b && b > c)
     {
@@ -29,6 +29,10 @@ biggestValue (int a, int b, int c)
   else if (c == a && c == b)
     {
       return a;
+    }
+  else
+    {
+      return c;
     }
 }
 
@@ -82,7 +86,7 @@ main (int argc, char *argv[])
             {
               fprintf (fwr, "TRIANGULO ACUTANGULO\n");
             }
-          if (side_a == side_b && side_a == side_c)
+          if (side_a == side_b && side_a == side_c && side_b == side_c)
             {
               fprintf (fwr, "TRIANGULO EQUILATERO\n");
             }
